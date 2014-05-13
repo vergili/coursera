@@ -2,9 +2,11 @@
 #R code for Week1 project  plot 2 
 
 
-data <- read.csv("ExploratoryDataAnalysis/household_power_consumption.txt",sep=";",header=TRUE)
+data <- read.csv("data/household_power_consumption.txt",sep=";",header=TRUE)
 
-data2 = subset(data, data$Date=="1/2/2007" | data$Date=="2/2/2007")
+
+data2 = subset(data, as.Date(data$Date,format="%d/%m/%Y")=="2007-2-2" | 
+                 as.Date(data$Date,format="%d/%m/%Y")=="2007-2-1")
 
 
 k = as.POSIXlt(paste(data2$Date, data2$Time), format="%d/%m/%Y %H:%M:%S")
